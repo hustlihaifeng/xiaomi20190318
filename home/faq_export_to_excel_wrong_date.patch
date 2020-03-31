@@ -1,0 +1,33 @@
+--- backend/server/data_analysis/app/data_get/single_faq_analysis.py    2019-05-27 11:43:24.348704389 +0800
++++ backend/server/data_analysis/app/data_get/single_faq_analysis.py.new        2019-05-27 11:27:21.596763995 +0800
+@@ -93,12 +93,17 @@ def exportfaqdata(pid, bid, start_date,
+             val_list=list(val)
+             val_list.sort(key=lambda x: x['date_sign'])
++            cur_date_set = set()
+             return_rows = []
+             for x in val_list:
+                 single_value = {}
+                 for k,v in x.items():
+                     single_value[k] = formatData(v)
+                 return_rows.append(single_value)
++                cur_date_set.add(single_value['date_sign'])
++            date_list=list(cur_date_set)
++            date_list.sort()
++        
+             faq_map = {"labels":labels_key, "question": faq_key, "biz_type":"" , "total":total_num ,"dateArray":date_list, "valueArray": return_rows}
+             data.append(faq_map)
+@@ -166,12 +171,16 @@ def exportfaqdata(pid, bid, start_date,
+             val_list=list(val)
+             val_list.sort(key=lambda x: x['date_sign'])
++            cur_date_set = set()
+             return_rows = []
+             for x in val_list:
+                 single_value = {}
+                 for k,v in x.items():
+                     single_value[k] = str(v)
+                 return_rows.append(single_value)
++                cur_date_set.add(single_value['date_sign'])
++            date_list=list(cur_date_set)
++            date_list.sort()
+             faq_map = {"question": faq, "dateArray": date_list, "valueArray":return_rows}
+             data.append(faq_map)

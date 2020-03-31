@@ -1,0 +1,19 @@
+ssh root@167.179.113.200
+
+wget --no-check-certificate -O shadowsocks-all.sh https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocks-all.sh
+chmod +x shadowsocks-all.sh
+./shadowsocks-all.sh 2>&1 | tee shadowsocks-all.log
+
+Congratulations, Shadowsocks-Go server install completed!
+Your Server IP        :  167.179.113.200 
+Your Server Port      :  10212 
+Your Password         :  123456 
+Your Encryption Method:  aes-256-cfb 
+
+Your QR Code: (For Shadowsocks Windows, OSX, Android and iOS clients)
+ ss://YWVzLTI1Ni1jZmI6MTIzNDU2QDE2Ny4xNzkuMTEzLjIwMDoxMDIxMg== 
+Your QR Code has been saved as a PNG file path:
+ /root/shadowsocks_go_qr.png 
+
+Welcome to visit: https://teddysun.com/486.html
+Enjoy it!
